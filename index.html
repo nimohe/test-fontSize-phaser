@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test-fontsize</title>
+    <script src="phaser.min.js"></script>
+    <style media="screen">
+      *{
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+</head>
+
+<body>
+    <div id="gameContainer" class="gameContainer"></div>
+
+
+    <script type="text/javascript">
+        window.onload = function() {
+            // alert("hi")
+            var game = new Phaser.Game("100%", "100%", Phaser.AUTO, 'gameContainer');
+
+            game.state.add('Game', BasicGame.Game);
+            game.state.start('Game');
+        };
+
+        var BasicGame = {};
+
+        BasicGame.Game = function(game) {
+
+        };
+
+        BasicGame.Game.prototype = {
+            init: function() {
+                // alert("hi");
+            },
+            create: function() {
+                var style = {
+                    font: "Arial",
+                    fontStyle: "italic",
+                    fontWeight: "bold",
+                    fontSize: "2050px",//larger than 2000px
+                    align: 'center'
+                };
+                var text = this.add.text(0, 0, "test", style);
+                text.fill = "#00FF00";
+                text.inputEnabled = true;
+                text.input.enableDrag();
+            }
+
+        };
+    </script>
+</body>
+
+</html>
